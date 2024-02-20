@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Detección del tizón foliar
+{% endblock title %}
+
+{% block others %}
+
+{% endblock others %}
+
+{% block content %}
+  <form class="form-signin card_res mb-6" method=post enctype=multipart/form-data>
+    <h1 class="h2">Resultado</h1>
+    {% if score <= 0.5 %}
+    <div class="alert alert-success" role="alert">
+      No se ha detectado tizón foliar 
+    </div>
+    {% else %}
+      <div class="alert alert-warning" role="alert">
+        Tizón foliar detectado: {{ num_detections }}
+      </div>
+    {% endif %}
+    <div>
+      <img class="img-fluid" src="{{ url_for('static', filename=result_image ) }}" alt="User_Image" max-width="100%" height="auto">
+    </div>
+    <br>
+    <div style="margin-bottom: 10px;">
+      <button class="btn2" href="">
+        Subir otra imagen
+      </button>
+    </div>
+  </form>
+{% endblock content %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}
+  Detección del tizón foliar
+{% endblock title %}
+
+{% block others %}
+  
+{% endblock others %}
+
+{% block content %}
+  <form class="form-signin card mb-6"  method=post enctype=multipart/form-data>
+
+    <h1 class="h2">Detección del tizón foliar</h1>
+    <br />
+    <h3 class="h3">Seleccione una imagen en formato JPG, JPEG o PNG para llevar a cabo la detección.</h3>
+    <br />
+    <div class="file-upload">
+      <input type="file" name="file" class="file-input" id="inputfile" accept="image/*"/>
+      <label for="inputfile" class="file-label">
+        <span class="file-text">Seleccionar archivo</span>
+      </label>
+    </div>
+
+    <img id="preview-image" src="#" alt="Preview Image">
+
+    <br />
+    <div style="margin-bottom: 10px;">
+      <button class="btn2" id="submit-button" disabled style="display: none;">
+        Subir imagen
+      </button>
+    </div>
+  </form>
+  
+{% endblock content %}

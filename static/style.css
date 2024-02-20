@@ -1,0 +1,280 @@
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.body {
+  width: 100% !important;
+  height: 100% !important;
+}
+/* Form */
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  margin-bottom: 0;
+  background-color: #ddbb89;
+}
+
+.form-signin .form-control {
+  position: relative;
+  top: 40px;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.center_img {
+  margin: auto;
+  width: 100%;
+  height: auto;
+}
+
+.box {
+  width: 140px;
+  height: auto;
+  float: left;
+  transition: .5s linear;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 15px;
+  text-align: center;
+  margin: 0 5px;
+  background: transparent;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.box:before {
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid transparent;
+  box-sizing: border-box;
+  transform: translateX(100%);
+}
+
+.box:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-top: 4px solid transparent;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  transform: translateX(-100%);
+}
+
+.box:hover {
+  box-shadow: 0 5px 15px #00000080;
+}
+
+.box:hover:before {
+  border-color: #262626;
+  height: 100%;
+  transform: translateX(0);
+  transition: .3s transform linear, .3s height linear .3s;
+}
+
+.box:hover:after {
+  border-color: #262626;
+  height: 100%;
+  transform: translateX(0);
+  transition: .3s transform linear, .3s height linear .5s;
+}
+
+.card {
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 500px;
+  height: 550px;
+  padding: 50px;
+  border-radius: 30px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #ffffff;
+  background: #cfd3db;
+  /*box-shadow: 20px 20px 60px #e96464,
+    -20px -20px 60px #3b9b36;*/
+}
+
+.card_res {
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  max-height: 800px;
+  padding: 25px;
+  border: 2px solid #00000020;
+  border-radius: 30px;
+  position: relative;
+  top: 40px;
+  bottom: 40px;
+  margin-bottom: 80px;
+  left: 0;
+  right: 0;
+  /*margin: auto; */
+  background-color: #ffffff;
+  background: #ffffff;
+  /*box-shadow: 20px 20px 60px #3b9b36,
+    -20px -20px 60px #e96464;*/
+}
+
+/* Botones */
+.btn2 {
+  display: inline-block;
+  border-radius: 1px;
+  padding: 0.9rem 1.8rem;
+  font-size: 16px;
+  font-weight: 700;
+  color: rgb(8, 7, 7);
+  border: 3px solid #3b9b36;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  font-family: Arial;
+  margin-top: 15px;
+  padding: 10px 20px;
+ }
+ 
+ .btn2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #3b9b36;
+  transform: translateX(-100%);
+  transition: all .3s;
+  z-index: -1;
+ }
+ 
+ .btn2:hover::before {
+  transform: translateX(0);
+ }
+
+/* Imput file*/
+#preview-image {
+  display: none;
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  width: 300px; /* Tamaño deseado de la imagen */
+  height: 200px; /* Tamaño deseado de la imagen */
+  object-fit: cover;
+}
+
+.file-upload {
+  position: relative;
+  display: inline-block;
+}
+
+.file-input {
+  position: absolute;
+  left: -9999px;
+}
+
+.file-label {
+  display: inline-block;
+  background-color: #3b9b36;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.file-text {
+  font-weight: bold;
+  font-family: Arial;
+}
+
+.file-label:hover {
+  background-color: #2a7f29;
+}
+
+.selected-file-name {
+  margin-top: 10px;
+}
+
+
+/* Cavecera de la pagina*/
+.header {
+  background-color: #0c2342;
+  color: #fff;
+  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.logo a img {
+  width: 200px; /* Elige el ancho deseado para la imagen */
+  height: auto; /* Permite que la altura se ajuste automáticamente */
+}
+
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-menu li {
+  margin-right: 10px;
+}
+
+.nav-menu li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+@keyframes effect {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pie de pagina */
+

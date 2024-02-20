@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} {% endblock title %}</title>
+    <link rel="stylesheet" href="../static/style.css" />
+    <link rel="stylesheet" href="../static/Bootstrap.css" />
+    <link rel="icon" href="../static/icono.png" type="image/png" />
+
+    {% block others %} {% endblock others %}
+  </head>
+  <body class="body">
+    <header class="header">
+      <nav class="navbar">
+        <div class="logo">
+          <a href=""><img src="../static/unl.png" alt="Logo"></a>
+        </div>
+      </nav>
+      
+    </header>
+
+    {% block content %} {% endblock content %}
+
+    
+    
+    <script>
+      const nav = document.querySelector("nav");
+
+      document.addEventListener("scroll", (e) => {
+        if (scrollY > 100) {
+          nav.classList.add("bg-gray-900");
+        } else {
+          nav.classList.remove("bg-gray-900");
+        }
+      });
+    </script>
+
+    <script
+      src="//code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      $("#inputfile").bind("change", function () {
+        let fileSize = this.files[0].size / 20480 / 20480; // 20 mg this gives in MB
+        if (fileSize > 20) {
+          $("#inputfile").val(null);
+          alert(
+            "El archivo es demasiado grande. no se permiten imágenes de más de 20MB"
+          );
+          return;
+        }
+  
+        let ext = $("#inputfile").val().split(".").pop().toLowerCase();
+        if ($.inArray(ext, ["jpg", "jpeg", "png"]) == -1) {
+          $("#inputfile").val(null);
+          alert("¡Solo se permiten archivos jpeg, jpg o png!");
+        }
+      });
+  
+      const inputFile = document.getElementById("inputfile");
+      const previewImage = document.getElementById("preview-image");
+      const submitButton = document.getElementById("submit-button");
+      inputFile.addEventListener("change", function () {
+        const file = this.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.addEventListener("load", function () {
+            previewImage.src = this.result;
+            previewImage.style.display = "block";
+            submitButton.disabled = false;
+            submitButton.style.display = "block";
+          });
+          reader.readAsDataURL(file);
+        } else {
+          previewImage.src = "#";
+          previewImage.style.display = "none";
+          submitButton.disabled = true;
+          submitButton.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
