@@ -8,7 +8,8 @@
 {% endblock others %}
 
 {% block content %}
-  <form class="form-signin card mb-6"  method=post enctype=multipart/form-data>
+
+  <form class="form-signin card mb-6"  method="post" enctype="multipart/form-data" action="{{ url_for('predict') }}">
 
     <h1 class="h2">Detección del tizón foliar</h1>
     <br />
