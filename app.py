@@ -75,14 +75,18 @@ def get_prediction(img_bytes):
             # Ajustar el tamaño del label según el texto
             font_size = MAX_FONT_SIZE
             font = ImageFont.truetype("arial.ttf", font_size)
-            label_width, label_height = draw.textsize(label, font=font)
+            label_bbox = draw.textbbox((x1, y1), label, font=font)
+            label_width = label_bbox[2] - label_bbox[0]
+            label_height = label_bbox[3] - label_bbox[1]
             
             while label_width > (x2 - x1):
                 font_size -= 1
                 if font_size < MIN_FONT_SIZE:
                     break
                 font = ImageFont.truetype("arial.ttf", font_size)
-                label_width, label_height = draw.textsize(label, font=font)
+                label_bbox = draw.textbbox((x1, y1), label, font=font)
+                label_width = label_bbox[2] - label_bbox[0]
+                label_height = label_bbox[3] - label_bbox[1]
             
             if y1 - label_height - 4 >= 0:
                 label_y1 = y1 - label_height - 4
